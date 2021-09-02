@@ -1,5 +1,5 @@
 {% set name = "jupyterlab-kernelspy" %}
-{% set version = "3.0.5" %}
+{% set version = "3.0.6" %}
 
 
 package:
@@ -8,7 +8,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 6e6df43323ff926db5ef17967363a8f86a2c310fb31be175413331484ad2af49
+  sha256: ba523d1a8ebe30394940b697f1bbbfc4c8e11d75cca88847c9fafe95607c8dd8
 
 build:
   number: 0
