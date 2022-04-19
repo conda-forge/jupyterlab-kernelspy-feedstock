@@ -18,11 +18,11 @@ build:
 requirements:
   host:
     - pip
-    - python >=3.6
-    - jupyter-packaging >=0.7.9,<0.8
+    - python >=3.7
+    - jupyterlab >=3.1,<4
+    - jupyter-packaging >=0.10.0,<2.0.0
   run:
-    - jupyterlab >=3.0,<4
-    - python >=3.6
+    - python >=3.7
 
 test:
   commands:
