@@ -1,46 +1,51 @@
-{% set name = "jupyterlab-kernelspy" %}
 {% set version = "4.0.0" %}
 
-
 package:
-  name: {{ name|lower }}
+  name: jupyterlab-kernelspy
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/jupyterlab_kernelspy-{{ version }}.tar.gz
+  url: https://pypi.io/packages/source/j/jupyterlab-kernelspy/jupyterlab_kernelspy-{{ version }}.tar.gz
   sha256: f36ed0f1adf0adfa99ff30eaa88e4fcef645c6822588eefb8c0bb08a18929aa0
 
 build:
   number: 0
   noarch: python
-  script: {{ PYTHON }} -m pip install . -vv
+  script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
 
 requirements:
   host:
-    - pip
-    - python >=3.7
-    - hatch-jupyter-builder >=0.8.1
-    - hatchling
     - jupyterlab >=4,<5
-    - jupyter-packaging >=0.10.0,<2.0.0
+    - hatch-nodejs-version
+    - hatch-jupyter-builder >=0.5
+    - hatchling >=1.5.0
+    - pip
+    - python >=3.8
   run:
-    - python >=3.7
+    - python >=3.8
   run_constrained:
     - jupyterlab >=4,<5
 
 test:
+  imports:
+    - jupyterlab_kernelspy
   commands:
     - pip check
-    - test -f "${PREFIX}/share/jupyter/labextensions/jupyterlab-kernelspy/package.json"                                    # [unix]
-    - if exist %PREFIX%\\share\\jupyter\\labextensions\\jupyterlab-kernelspy\\package.json (exit 0) else (exit 1)          # [win]
+    - jupyter labextension list
+    - jupyter labextension list 1>labextensions 2>&1
+    - grep -iE "jupyterlab-kernelspy.*OK" labextensions
   requires:
     - pip
+    - jupyterlab
+    - m2-grep  # [win]
 
 about:
   home: https://github.com/jupyterlab-contrib/jupyterlab-kernelspy
   summary: A JupyterLab extension for inspecting messages to/from a kernel
   license: BSD-3-Clause
-  license_file: LICENSE
+  license_file: 
+    - LICENSE
+    - jupyterlab_kernelspy/labextension/static/third-party-licenses.json
 
 extra:
   recipe-maintainers:
