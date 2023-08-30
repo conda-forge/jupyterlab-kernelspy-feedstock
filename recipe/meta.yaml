@@ -16,8 +16,8 @@ build:
 requirements:
   host:
     - jupyterlab >=4,<5
-    - hatch-nodejs-version
     - hatch-jupyter-builder >=0.5
+    - hatch-nodejs-version
     - hatchling >=1.5.0
     - pip
     - python >=3.8
@@ -33,7 +33,7 @@ test:
     - pip check
     - jupyter labextension list
     - jupyter labextension list 1>labextensions 2>&1
-    - grep -iE "jupyterlab-kernelspy.*OK" labextensions
+    - grep -iE "jupyterlab-kernelspy.*v{{ version.replace('.', '\.') }}.*OK.*jupyterlab_kernelspy" labextensions
   requires:
     - pip
     - jupyterlab
