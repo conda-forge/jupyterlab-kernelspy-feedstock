@@ -1,11 +1,11 @@
-About jupyterlab-kernelspy
-==========================
+About jupyterlab-kernelspy-feedstock
+====================================
+
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/jupyterlab-kernelspy-feedstock/blob/main/LICENSE.txt)
 
 Home: https://github.com/jupyterlab-contrib/jupyterlab-kernelspy
 
 Package license: BSD-3-Clause
-
-Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/jupyterlab-kernelspy-feedstock/blob/main/LICENSE.txt)
 
 Summary: A JupyterLab extension for inspecting messages to/from a kernel
 
@@ -146,4 +146,5 @@ Feedstock Maintainers
 * [@bollwyvl](https://github.com/bollwyvl/)
 * [@fcollonval](https://github.com/fcollonval/)
 * [@jtpio](https://github.com/jtpio/)
+* [@martinRenou](https://github.com/martinRenou/)
 
