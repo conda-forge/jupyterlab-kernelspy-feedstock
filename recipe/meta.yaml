@@ -1,5 +1,5 @@
 {% set name = "jupyterlab-kernelspy" %}
-{% set version = "3.1.0" %}
+{% set version = "4.0.0" %}
 
 
 package:
@@ -7,8 +7,8 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 5c4439e08aae27d0ccff3697603d5ae97558dc7e2626247f22abe1fc6ec13e90
+  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/jupyterlab_kernelspy-{{ version }}.tar.gz
+  sha256: f36ed0f1adf0adfa99ff30eaa88e4fcef645c6822588eefb8c0bb08a18929aa0
 
 build:
   number: 0
@@ -19,10 +19,12 @@ requirements:
   host:
     - pip
     - python >=3.7
-    - jupyterlab >=3.1,<4
+    - jupyterlab >=4,<5
     - jupyter-packaging >=0.10.0,<2.0.0
   run:
     - python >=3.7
+  run_constrained:
+    - jupyterlab >=4,<5
 
 test:
   commands:
@@ -43,3 +45,4 @@ extra:
     - bollwyvl
     - fcollonval
     - jtpio
+    - martinRenou
