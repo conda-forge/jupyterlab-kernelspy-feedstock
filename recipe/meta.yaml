@@ -19,6 +19,8 @@ requirements:
   host:
     - pip
     - python >=3.7
+    - hatch-jupyter-builder >=0.8.1
+    - hatchling
     - jupyterlab >=4,<5
     - jupyter-packaging >=0.10.0,<2.0.0
   run:
